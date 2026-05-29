@@ -1,1 +1,14 @@
-dmVyc2lvbjogJzMuOCcKc2VydmljZXM6CiAgaHRtbC10b29sczoKICAgIGJ1aWxkOiAuCiAgICBjb250YWluZXJfbmFtZTogaHRtbC10b29scwogICAgcG9ydHM6CiAgICAgIC0gIjUwMDA6NTAwMCIKICAgIGVudmlyb25tZW50OgogICAgICAtIEFETUlOX1BBU1NXT1JEPWFkbWluMTIzCiAgICAgIC0gTkFWQkFSX1RJVExFPUxEWSBUb29scyBQb3J0YWwKICAgICAgLSBQT1JUQUxfQ09MT1I9IzNiODJmNgogICAgdm9sdW1lczoKICAgICAgLSAuL3Rvb2xzOi9hcHAvdG9vbHM6cm8KICAgIHJlc3RhcnQ6IHVubGVzcy1zdG9wcGVkCg==
+version: '3.8'
+services:
+  html-tools:
+    image: ghcr.io/primeldy88/html-tools:latest
+    container_name: html-tools
+    ports:
+      - "5000:5000"
+    environment:
+      - ADMIN_PASSWORD=admin123
+      - NAVBAR_TITLE=LDY Tools Portal
+      - PORTAL_COLOR=#3b82f6
+    volumes:
+      - ./data:/app/tools
+    restart: unless-stopped
