@@ -1,9 +1,34 @@
-直接运行容器
-docker run -d \\
-  --name html-tools \\
-  -p 5000:5000 \\
-  -e ADMIN_PASSWORD=admin123 \\
-  -v $(pwd)/data:/app/tools \\
+# 🛠️ HTML Tools Portal
+一个简洁好看的 **HTML 工具门户**，用于集中管理和展示你的 HTML 工具集合。
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+---
+## ✨ 功能特点
+| 功能 | 说明 |
+|------|------|
+| 🆓 **公开首页** | 工具列表页无需登录，任何人都可以访问 |
+| 🔐 **管理后台** | 独立登录页面，账号密码保护管理功能 |
+| 📤 **上传工具** | 支持上传 HTML 文件，可设置名称、描述、图标 |
+| 🖼️ **图标管理** | 每个工具可单独上传/替换图标 |
+| ✏️ **编辑工具** | 已上传的工具可随时修改名称、描述、图标 |
+| 🗑️ **删除工具** | 可删除不需要的工具 |
+| 🎨 **主题定制** | 可自定义导航标题和主题颜色 |
+| 💾 **数据持久化** | 上传的文件存储在 `/app/tools` 目录 |
+---
+## 🚀 一键部署
+### 方式一：Docker Compose（推荐）
+```bash
+mkdir -p html-tools && cd html-tools
+curl -sL https://raw.githubusercontent.com/primeldy88/html-tools/main/docker-compose.yml -o docker-compose.yml
+mkdir -p data
+docker-compose up -d
+方式二：直接运行容器
+docker run -d \
+  --name html-tools \
+  -p 5000:5000 \
+  -e ADMIN_PASSWORD=admin123 \
+  -v $(pwd)/data:/app/tools \
   ghcr.io/primeldy88/html-tools:latest
 🔑 访问信息
 项目
@@ -67,23 +92,11 @@ html-tools/
     ├── tool2.html
     └── .metadata.json     # 工具元数据（自动生成）
 🐳 本地开发
-# 克隆代码
 git clone https://github.com/primeldy88/html-tools.git
 cd html-tools
-
-# 安装依赖
 pip install -r requirements.txt
-
-# 运行
 python app.py
 
 访问 http://localhost:5000
 📝 License
 MIT License © 2026 LDY Tools
-如果对你有帮助，欢迎 ⭐ Star！
-"""
-
-repo.update_file("README.md", "docs: enhance README with detailed usage and deployment guide", new_readme, readme.sha)
-print("README updated!")
-PYEOF</parameter>
-</invoke>
