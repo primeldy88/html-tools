@@ -19,10 +19,21 @@
 ## 🚀 一键部署
 ### 方式一：Docker Compose（推荐）
 ```bash
-mkdir -p html-tools && cd html-tools
-curl -sL https://raw.githubusercontent.com/primeldy88/html-tools/main/docker-compose.yml -o docker-compose.yml
-mkdir -p data
-docker-compose up -d
+version: '3.8'
+services:
+  html-tools:
+    image: ghcr.io/primeldy88/html-tools:latest
+    container_name: html-tools
+    ports:
+      - "5000:5000"
+    environment:
+      - ADMIN_PASSWORD=admin123
+      - NAVBAR_TITLE=LDY的HTML工具
+      - PORTAL_COLOR=#3b82f6
+    volumes:
+      - ./data:/app/tools
+    restart: unless-stopped
+
 方式二：直接运行容器
 docker run -d \
   --name html-tools \
