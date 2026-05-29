@@ -1,1 +1,255 @@
-aW1wb3J0IG9zLCBzZWNyZXRzCmZyb20gZmxhc2sgaW1wb3J0IEZsYXNrLCBzZW5kX2Zyb21fZGlyZWN0b3J5LCByZXF1ZXN0LCBmbGFzaCwgcmVuZGVyX3RlbXBsYXRlX3N0cmluZywgcmVkaXJlY3QsIHVybF9mb3IKZnJvbSBmbGFza19odHRwYXV0aCBpbXBvcnQgSFRUUEJhc2ljQXV0aApmcm9tIHdlcmt6ZXVnLnNlY3VyaXR5IGltcG9ydCBjaGVja19wYXNzd29yZF9oYXNoLCBnZW5lcmF0ZV9wYXNzd29yZF9oYXNoCmZyb20gd2Vya3pldWcudXRpbHMgaW1wb3J0IHNlY3VyZV9maWxlbmFtZQoKYXBwID0gRmxhc2soX19uYW1lX18pCmFwcC5zZWNyZXRfa2V5ID0gb3MuZW52aXJvbi5nZXQoJ1NFQ1JFVF9LRVknLCBzZWNyZXRzLnRva2VuX2hleCgzMikpCmFwcC5jb25maWdbJ01BWF9DT05URU5UX0xFTkdUSCddID0gMTYgKiAxMDI0ICogMTAyNCAgIyAxNk1CIG1heCB1cGxvYWQKCmF1dGggPSBIVFRQQmFzaWNBdXRoKCkKdXNlcnMgPSB7ImFkbWluIjogZ2VuZXJhdGVfcGFzc3dvcmRfaGFzaChvcy5lbnZpcm9uLmdldCgnQURNSU5fUEFTU1dPUkQnLCAnYWRtaW4xMjMnKSl9CgpAYXV0aC52ZXJpZnlfcGFzc3dvcmQKZGVmIHZlcmlmeV9wYXNzd29yZCh1c2VybmFtZSwgcGFzc3dvcmQpOgogICAgaWYgdXNlcm5hbWUgaW4gdXNlcnMgYW5kIGNoZWNrX3Bhc3N3b3JkX2hhc2godXNlcnNbdXNlcm5hbWVdLCBwYXNzd29yZCk6CiAgICAgICAgcmV0dXJuIHVzZXJuYW1lCgpUT09MU19ESVIgPSBvcy5lbnZpcm9uLmdldCgnVE9PTFNfRElSJywgJy9hcHAvdG9vbHMnKQpOQVZCQVJfVElUTEUgPSBvcy5lbnZpcm9uLmdldCgnTkFWQkFSX1RJVExFJywgJ0xEWSBUb29scyBQb3J0YWwnKQpQT1JUQUxfQ09MT1IgPSBvcy5lbnZpcm9uLmdldCgnUE9SVEFMX0NPTE9SJywgJyMzYjgyZjYnKQoKb3MubWFrZWRpcnMoVE9PTFNfRElSLCBleGlzdF9vaz1UcnVlKQoKZGVmIGdldF90b29sX2xpc3QoKToKICAgIHRvb2xzID0gW10KICAgIGlmIG9zLnBhdGguaXNkaXIoVE9PTFNfRElSKToKICAgICAgICBmb3IgZiBpbiBzb3J0ZWQob3MubGlzdGRpcihUT09MU19ESVIpKToKICAgICAgICAgICAgaWYgZi5lbmRzd2l0aCgnLmh0bWwnKToKICAgICAgICAgICAgICAgIHRvb2xzLmFwcGVuZCh7CiAgICAgICAgICAgICAgICAgICAgJ25hbWUnOiBmLnJlcGxhY2UoJy5odG1sJywnJykucmVwbGFjZSgnLScsJyAnKS5yZXBsYWNlKCdfJywnICcpLnRpdGxlKCksCiAgICAgICAgICAgICAgICAgICAgJ2ZpbGUnOiBmLAogICAgICAgICAgICAgICAgICAgICdwYXRoJzogZicvdG9vbHMve2Z9JwogICAgICAgICAgICAgICAgfSkKICAgIHJldHVybiB0b29scwoKZGVmIHNhdmVfZW52KGtleSwgdmFsdWUpOgogICAgZW52X3BhdGggPSAnL2FwcC8uZW52JwogICAgbGluZXMgPSBbXQogICAgaWYgb3MucGF0aC5leGlzdHMoZW52X3BhdGgpOgogICAgICAgIHdpdGggb3BlbihlbnZfcGF0aCkgYXMgZjoKICAgICAgICAgICAgbGluZXMgPSBbbCBmb3IgbCBpbiBmIGlmIG5vdCBsLnN0YXJ0c3dpdGgoa2V5Kyc9JyldCiAgICB3aXRoIG9wZW4oZW52X3BhdGgsICd3JykgYXMgZjoKICAgICAgICBmLndyaXRlKCdcbicuam9pbihsaW5lcykgKyAoJ1xuJyBpZiBsaW5lcyBlbHNlICcnKSArIGYie2tleX09e3ZhbHVlfVxuIikKCkBhcHAucm91dGUoJy8nKQpAYXV0aC5sb2dpbl9yZXF1aXJlZApkZWYgaW5kZXgoKToKICAgIHRvb2xzID0gZ2V0X3Rvb2xfbGlzdCgpCiAgICByZXR1cm4gcmVuZGVyX3RlbXBsYXRlX3N0cmluZyhURU1QTEFURV9IT01FLCB0b29scz10b29scywgbmF2YmFyX3RpdGxlPU5BVkJBUl9USVRMRSwKICAgICAgICBwb3J0YWxfY29sb3I9UE9SVEFMX0NPTE9SLCB1c2VybmFtZT1hdXRoLnVzZXJuYW1lKCkpCgpAYXBwLnJvdXRlKCcvdG9vbHMvPHBhdGg6ZmlsZW5hbWU+JykKQGF1dGgubG9naW5fcmVxdWlyZWQKZGVmIHNlcnZlX3Rvb2woZmlsZW5hbWUpOgogICAgcmV0dXJuIHNlbmRfZnJvbV9kaXJlY3RvcnkoVE9PTFNfRElSLCBmaWxlbmFtZSkKCkBhcHAucm91dGUoJy9hZG1pbicpCkBhdXRoLmxvZ2luX3JlcXVpcmVkCmRlZiBhZG1pbigpOgogICAgdG9vbHMgPSBnZXRfdG9vbF9saXN0KCkKICAgIHJldHVybiByZW5kZXJfdGVtcGxhdGVfc3RyaW5nKFRFTVBMQVRFX0FETUlOLCB0b29scz10b29scywKICAgICAgICBuYXZiYXJfdGl0bGU9TkFWQkFSX1RJVExFLCBwb3J0YWxfY29sb3I9UE9SVEFMX0NPTE9SLCB1c2VybmFtZT1hdXRoLnVzZXJuYW1lKCkpCgpAYXBwLnJvdXRlKCcvYWRtaW4vdXBkYXRlJywgbWV0aG9kcz1bJ1BPU1QnXSkKQGF1dGgubG9naW5fcmVxdWlyZWQKZGVmIGFkbWluX3VwZGF0ZSgpOgogICAgZ2xvYmFsIE5BVkJBUl9USVRMRSwgUE9SVEFMX0NPTE9SCiAgICBOQVZCQVJfVElUTEUgPSByZXF1ZXN0LmZvcm0uZ2V0KCduYXZiYXJfdGl0bGUnLCBOQVZCQVJfVElUTEUpCiAgICBQT1JUQUxfQ09MT1IgPSByZXF1ZXN0LmZvcm0uZ2V0KCdwb3J0YWxfY29sb3InLCBQT1JUQUxfQ09MT1IpCiAgICBzYXZlX2VudignTkFWQkFSX1RJVExFJywgTkFWQkFSX1RJVExFKQogICAgc2F2ZV9lbnYoJ1BPUlRBTF9DT0xPUicsIFBPUlRBTF9DT0xPUikKICAgIGlmIHJlcXVlc3QuZm9ybS5nZXQoJ2FkbWluX3Bhc3N3b3JkJyk6CiAgICAgICAgc2F2ZV9lbnYoJ0FETUlOX1BBU1NXT1JEJywgcmVxdWVzdC5mb3JtLmdldCgnYWRtaW5fcGFzc3dvcmQnKSkKICAgICAgICBmbGFzaCgn6K6+572u5bey5L+d5a2Y77yM5a+G56CB5bey5pu05pawJywgJ3N1Y2Nlc3MnKQogICAgZWxzZToKICAgICAgICBmbGFzaCgn6K6+572u5bey5L+d5a2YJywgJ3N1Y2Nlc3MnKQogICAgcmV0dXJuIHJlZGlyZWN0KHVybF9mb3IoJ2FkbWluJykpCgpAYXBwLnJvdXRlKCcvYWRtaW4vdXBsb2FkJywgbWV0aG9kcz1bJ1BPU1QnXSkKQGF1dGgubG9naW5fcmVxdWlyZWQKZGVmIHVwbG9hZF90b29sKCk6CiAgICBmaWxlID0gcmVxdWVzdC5maWxlcy5nZXQoJ3Rvb2xfZmlsZScpCiAgICBpZiBub3QgZmlsZSBvciBub3QgZmlsZS5maWxlbmFtZToKICAgICAgICBmbGFzaCgn6K+36YCJ5oup5paH5Lu2JywgJ2Vycm9yJykKICAgICAgICByZXR1cm4gcmVkaXJlY3QodXJsX2ZvcignYWRtaW4nKSkKICAgIGZpbGVuYW1lID0gc2VjdXJlX2ZpbGVuYW1lKGZpbGUuZmlsZW5hbWUpCiAgICBpZiBub3QgZmlsZW5hbWUuZW5kc3dpdGgoJy5odG1sJyk6CiAgICAgICAgZmxhc2goJ+WPquWFgeiuuOS4iuS8oCAuaHRtbCDmlofku7YnLCAnZXJyb3InKQogICAgICAgIHJldHVybiByZWRpcmVjdCh1cmxfZm9yKCdhZG1pbicpKQogICAgcGF0aCA9IG9zLnBhdGguam9pbihUT09MU19ESVIsIGZpbGVuYW1lKQogICAgZmlsZS5zYXZlKHBhdGgpCiAgICBmbGFzaChmJ3tmaWxlbmFtZX0g5LiK5Lyg5oiQ5YqfJywgJ3N1Y2Nlc3MnKQogICAgcmV0dXJuIHJlZGlyZWN0KHVybF9mb3IoJ2FkbWluJykpCgpAYXBwLnJvdXRlKCcvYWRtaW4vZGVsZXRlLzxmaWxlbmFtZT4nLCBtZXRob2RzPVsnUE9TVCddKQpAYXV0aC5sb2dpbl9yZXF1aXJlZApkZWYgZGVsZXRlX3Rvb2woZmlsZW5hbWUpOgogICAgc2FmZSA9IHNlY3VyZV9maWxlbmFtZShmaWxlbmFtZSkKICAgIHBhdGggPSBvcy5wYXRoLmpvaW4oVE9PTFNfRElSLCBzYWZlKQogICAgaWYgb3MucGF0aC5leGlzdHMocGF0aCk6CiAgICAgICAgb3MucmVtb3ZlKHBhdGgpCiAgICAgICAgZmxhc2goZid7ZmlsZW5hbWV9IOW3suWIoOmZpCcsICdzdWNjZXNzJykKICAgIHJldHVybiByZWRpcmVjdCh1cmxfZm9yKCdhZG1pbicpKQoKVEVNUExBVEVfSE9NRSA9ICcnJzwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJ6aC1DTiI+CjxoZWFkPgogICAgPG1ldGEgY2hhcnNldD0iVVRGLTgiPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiPgogICAgPHRpdGxlPnt7IG5hdmJhcl90aXRsZSB9fTwvdGl0bGU+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG4udGFpbHdpbmRjc3MuY29tIj48L3NjcmlwdD4KICAgIDxzdHlsZT5ib2R5IHsgZm9udC1mYW1pbHk6ICdJbnRlcicsIHN5c3RlbS11aSwgc2Fucy1zZXJpZjsgfQogICAgICAgIC50b29sLWNhcmQ6aG92ZXIgeyB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLTRweCk7IGJveC1zaGFkb3c6IDAgMTJweCAyNHB4IHJnYmEoMCwwLDAsMC4xNSk7IH0KICAgICAgICAucG9ydGFsLWhlYWRlciB7IGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCgxMzVkZWcsIHt7IHBvcnRhbF9jb2xvciB9fSwgIzFlNDBhZik7IH0KICAgIDwvc3R5bGU+CjwvaGVhZD4KPGJvZHkgY2xhc3M9ImJnLWdyYXktMTAwIG1pbi1oLXNjcmVlbiI+CiAgICA8aGVhZGVyIGNsYXNzPSJwb3J0YWwtaGVhZGVyIHRleHQtd2hpdGUgc2hhZG93LWxnIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtYXgtdy02eGwgbXgtYXV0byBweC02IHB5LTYgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIj4KICAgICAgICAgICAgPGRpdj48aDEgY2xhc3M9InRleHQtMnhsIGZvbnQtYm9sZCI+e3sgbmF2YmFyX3RpdGxlIH19PC9oMT4KICAgICAgICAgICAgICAgIDxwIGNsYXNzPSJ0ZXh0LWJsdWUtMjAwIHRleHQtc20gbXQtMSI+56Gs5Lu25bel56iL5biI5bel5YW36ZuGPC9wPjwvZGl2PgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtNCI+CiAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz0idGV4dC1ibHVlLTIwMCB0ZXh0LXNtIj5XZWxjb21lLCB7eyB1c2VybmFtZSB9fTwvc3Bhbj4KICAgICAgICAgICAgICAgIDxhIGhyZWY9Int7IHVybF9mb3IoJ2luZGV4JykgfX0iIGNsYXNzPSJweC00IHB5LTIgYmctd2hpdGUvMjAgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8zMCB0cmFuc2l0aW9uIHRleHQtc20iPuW3peWFt+mmlumhtTwvYT4KICAgICAgICAgICAgICAgIDxhIGhyZWY9Int7IHVybF9mb3IoJ2FkbWluJykgfX0iIGNsYXNzPSJweC00IHB5LTIgYmctd2hpdGUvMjAgcm91bmRlZC1sZyBob3ZlcjpiZy13aGl0ZS8zMCB0cmFuc2l0aW9uIHRleHQtc20iPuKame+4jyDorr7nva48L2E+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgPC9oZWFkZXI+CiAgICA8bWFpbiBjbGFzcz0ibWF4LXctNnhsIG14LWF1dG8gcHgtNiBweS04Ij4KICAgICAgICA8ZGl2IGNsYXNzPSJtYi02IGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiI+CiAgICAgICAgICAgIDxoMiBjbGFzcz0idGV4dC14bCBmb250LXNlbWlib2xkIHRleHQtZ3JheS03MDAiPuWPr+eUqOW3peWFtyAoe3sgdG9vbHN8bGVuZ3RoIH19KTwvaDI+CiAgICAgICAgPC9kaXY+CiAgICAgICAgeyUgaWYgdG9vbHMgJX0KICAgICAgICA8ZGl2IGNsYXNzPSJncmlkIGdyaWQtY29scy0xIG1kOmdyaWQtY29scy0yIGxnOmdyaWQtY29scy0zIGdhcC02Ij4KICAgICAgICAgICAgeyUgZm9yIHRvb2wgaW4gdG9vbHMgJX0KICAgICAgICAgICAgPGEgaHJlZj0ie3sgdG9vbC5wYXRoIH19IiB0YXJnZXQ9Il9ibGFuayIgY2xhc3M9InRvb2wtY2FyZCBibG9jayBiZy13aGl0ZSByb3VuZGVkLTJ4bCBzaGFkb3ctbWQgcC02IGJvcmRlciBib3JkZXItZ3JheS0xMDAgdHJhbnNpdGlvbi1hbGwgZHVyYXRpb24tMjAwIGhvdmVyOmJvcmRlci1ibHVlLTIwMCI+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMyBtYi0zIj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJ3LTEwIGgtMTAgcm91bmRlZC14bCBmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWNlbnRlciB0ZXh0LXdoaXRlIHRleHQtbGciIHN0eWxlPSJiYWNrZ3JvdW5kOiB7eyBwb3J0YWxfY29sb3IgfX0iPvCflKc8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8aDMgY2xhc3M9ImZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTgwMCI+e3sgdG9vbC5uYW1lIH19PC9oMz4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtc20gdGV4dC1ncmF5LTUwMCI+e3sgdG9vbC5maWxlIH19PC9wPgogICAgICAgICAgICA8L2E+CiAgICAgICAgICAgIHslIGVuZGZvciAlfQogICAgICAgIDwvZGl2PgogICAgICAgIHslIGVsc2UgJX0KICAgICAgICA8ZGl2IGNsYXNzPSJ0ZXh0LWNlbnRlciBweS0xNiBiZy13aGl0ZSByb3VuZGVkLTJ4bCBzaGFkb3ciPgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJ0ZXh0LTV4bCBtYi00Ij7wn5ug77iPPC9kaXY+CiAgICAgICAgICAgIDxoMyBjbGFzcz0idGV4dC1sZyBmb250LXNlbWlib2xkIHRleHQtZ3JheS03MDAgbWItMiI+5pqC5peg5bel5YW3PC9oMz4KICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtZ3JheS01MDAiPuivt+WcqOiuvue9rumhtemdouS4iuS8oCBIVE1MIOaWh+S7tjwvcD4KICAgICAgICA8L2Rpdj4KICAgICAgICB7JSBlbmRpZiAlfQogICAgPC9tYWluPgo8L2JvZHk+CjwvaHRtbD4nJycKClRFTVBMQVRFX0FETUlOID0gJycnPCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9InpoLUNOIj4KPGhlYWQ+CiAgICA8bWV0YSBjaGFyc2V0PSJVVEYtOCI+CiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCI+CiAgICA8dGl0bGU+566h55CG5ZCO5Y+wPC90aXRsZT4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi50YWlsd2luZGNzcy5jb20iPjwvc2NyaXB0Pgo8L2hlYWQ+Cjxib2R5IGNsYXNzPSJiZy1ncmF5LTEwMCBtaW4taC1zY3JlZW4iPgogICAgPGhlYWRlciBjbGFzcz0iYmctd2hpdGUgc2hhZG93LXNtIGJvcmRlci1iIj4KICAgICAgICA8ZGl2IGNsYXNzPSJtYXgtdy02eGwgbXgtYXV0byBweC02IHB5LTQgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIj4KICAgICAgICAgICAgPGgxIGNsYXNzPSJ0ZXh0LXhsIGZvbnQtYm9sZCB0ZXh0LWdyYXktODAwIj7impnvuI8g566h55CG5ZCO5Y+wPC9oMT4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTQiPgogICAgICAgICAgICAgICAgPGEgaHJlZj0ie3sgdXJsX2ZvcignaW5kZXgnKSB9fSIgY2xhc3M9InB4LTQgcHktMiBiZy1ibHVlLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6YmctYmx1ZS02MDAgdHJhbnNpdGlvbiB0ZXh0LXNtIj7ihpAg6L+U5Zue6aaW6aG1PC9hPgogICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQtZ3JheS01MDAgdGV4dC1zbSI+e3sgdXNlcm5hbWUgfX08L3NwYW4+CiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgPC9oZWFkZXI+CiAgICA8bWFpbiBjbGFzcz0ibWF4LXctNHhsIG14LWF1dG8gcHgtNiBweS04Ij4KICAgICAgICB7JSB3aXRoIG1lc3NhZ2VzID0gZ2V0X2ZsYXNoZWRfbWVzc2FnZXMod2l0aF9jYXRlZ29yaWVzPXRydWUpICV9CiAgICAgICAgICB7JSBmb3IgY2F0ZWdvcnksIG1lc3NhZ2UgaW4gbWVzc2FnZXMgJX0KICAgICAgICAgIDxkaXYgY2xhc3M9Im1iLTQgcC00IHJvdW5kZWQtbGcgeyUgaWYgY2F0ZWdvcnkgPT0gJ3N1Y2Nlc3MnICV9YmctZ3JlZW4tMTAwIHRleHQtZ3JlZW4tODAweyUgZWxzZSAlfWJnLXJlZC0xMDAgdGV4dC1yZWQtODAweyUgZW5kaWYgJX0iPnt7IG1lc3NhZ2UgfX08L2Rpdj4KICAgICAgICAgIHslIGVuZGZvciAlfQogICAgICAgIHslIGVuZHdpdGggJX0KCiAgICAgICAgPCEtLSDkuIrkvKDlt6XlhbcgLS0+CiAgICAgICAgPGRpdiBjbGFzcz0iYmctd2hpdGUgcm91bmRlZC0yeGwgc2hhZG93IHAtOCBtYi04Ij4KICAgICAgICAgICAgPGgyIGNsYXNzPSJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTcwMCBtYi02Ij7wn5OkIOS4iuS8oOW3peWFtzwvaDI+CiAgICAgICAgICAgIDxmb3JtIG1ldGhvZD0iUE9TVCIgYWN0aW9uPSJ7eyB1cmxfZm9yKCd1cGxvYWRfdG9vbCcpIH19IiBlbmN0eXBlPSJtdWx0aXBhcnQvZm9ybS1kYXRhIiBjbGFzcz0ic3BhY2UteS00Ij4KICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImJvcmRlci0yIGJvcmRlci1kYXNoZWQgYm9yZGVyLWdyYXktMzAwIHJvdW5kZWQteGwgcC04IHRleHQtY2VudGVyIGhvdmVyOmJvcmRlci1ibHVlLTQwMCB0cmFuc2l0aW9uIj4KICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0iZmlsZSIgbmFtZT0idG9vbF9maWxlIiBhY2NlcHQ9Ii5odG1sIiBjbGFzcz0iYmxvY2sgdy1mdWxsIHRleHQtc20gdGV4dC1ncmF5LTUwMCBmaWxlOm1yLTQgZmlsZTpweS0yIGZpbGU6cHgtNCBmaWxlOnJvdW5kZWQtbGcgZmlsZTpib3JkZXItMCBmaWxlOnRleHQtc20gZmlsZTpmb250LXNlbWlib2xkIGZpbGU6YmctYmx1ZS01MCBmaWxlOnRleHQtYmx1ZS03MDAgaG92ZXI6ZmlsZTpiZy1ibHVlLTEwMCIvPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9InB4LTYgcHktMyBiZy1ncmVlbi01MDAgdGV4dC13aGl0ZSByb3VuZGVkLWxnIGhvdmVyOmJnLWdyZWVuLTYwMCB0cmFuc2l0aW9uIGZvbnQtbWVkaXVtIj7kuIrkvKDlubbmt7vliqDlt6Xlhbc8L2J1dHRvbj4KICAgICAgICAgICAgPC9mb3JtPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8IS0tIOW3suS4iuS8oOW3peWFtyAtLT4KICAgICAgICA8ZGl2IGNsYXNzPSJiZy13aGl0ZSByb3VuZGVkLTJ4bCBzaGFkb3cgcC04IG1iLTgiPgogICAgICAgICAgICA8aDIgY2xhc3M9InRleHQtbGcgZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktNzAwIG1iLTQiPuW3suS4iuS8oOW3peWFtyAoe3sgdG9vbHN8bGVuZ3RoIH19KTwvaDI+CiAgICAgICAgICAgIHslIGlmIHRvb2xzICV9CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InNwYWNlLXktMiI+CiAgICAgICAgICAgICAgICB7JSBmb3IgdG9vbCBpbiB0b29scyAlfQogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHAtNCBiZy1ncmF5LTUwIHJvdW5kZWQtbGciPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZsZXggaXRlbXMtY2VudGVyIGdhcC0zIj4KICAgICAgICAgICAgICAgICAgICAgICAgPHNwYW4gY2xhc3M9InRleHQteGwiPvCflKc8L3NwYW4+CiAgICAgICAgICAgICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb250LW1lZGl1bSB0ZXh0LWdyYXktODAwIj57eyB0b29sLm5hbWUgfX08L2Rpdj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9InRleHQteHMgdGV4dC1ncmF5LTUwMCI+e3sgdG9vbC5maWxlIH19PC9kaXY+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZsZXggZ2FwLTIiPgogICAgICAgICAgICAgICAgICAgICAgICA8YSBocmVmPSJ7eyB0b29sLnBhdGggfX0iIHRhcmdldD0iX2JsYW5rIiBjbGFzcz0icHgtMyBweS0xIGJnLWJsdWUtMTAwIHRleHQtYmx1ZS03MDAgcm91bmRlZCB0ZXh0LXhzIGhvdmVyOmJnLWJsdWUtMjAwIj7miZPlvIA8L2E+CiAgICAgICAgICAgICAgICAgICAgICAgIDxmb3JtIG1ldGhvZD0iUE9TVCIgYWN0aW9uPSJ7eyB1cmxfZm9yKCdkZWxldGVfdG9vbCcsIGZpbGVuYW1lPXRvb2wuZmlsZSkgfX0iIG9uc3VibWl0PSJyZXR1cm4gY29uZmlybSgn56Gu5a6a5Yig6ZmkIHt7IHRvb2wuZmlsZSB9fe+8nycpIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxidXR0b24gdHlwZT0ic3VibWl0IiBjbGFzcz0icHgtMyBweS0xIGJnLXJlZC0xMDAgdGV4dC1yZWQtNzAwIHJvdW5kZWQgdGV4dC14cyBob3ZlcjpiZy1yZWQtMjAwIj7liKDpmaQ8L2J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPC9mb3JtPgogICAgICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICB7JSBlbmRmb3IgJX0KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIHslIGVsc2UgJX0KICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtY2VudGVyIHB5LTggdGV4dC1ncmF5LTUwMCI+5pqC5peg5bel5YW3PC9wPgogICAgICAgICAgICB7JSBlbmRpZiAlfQogICAgICAgIDwvZGl2PgoKICAgICAgICA8IS0tIOWfuuacrOiuvue9riAtLT4KICAgICAgICA8ZGl2IGNsYXNzPSJiZy13aGl0ZSByb3VuZGVkLTJ4bCBzaGFkb3cgcC04Ij4KICAgICAgICAgICAgPGgyIGNsYXNzPSJ0ZXh0LWxnIGZvbnQtc2VtaWJvbGQgdGV4dC1ncmF5LTcwMCBtYi02Ij7ln7rmnKzorr7nva48L2gyPgogICAgICAgICAgICA8Zm9ybSBtZXRob2Q9IlBPU1QiIGFjdGlvbj0ie3sgdXJsX2ZvcignYWRtaW5fdXBkYXRlJykgfX0iIGNsYXNzPSJzcGFjZS15LTYiPgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3M9ImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yIj7lr7zoiKrmoI/moIfpopg8L2xhYmVsPgogICAgICAgICAgICAgICAgICAgIDxpbnB1dCB0eXBlPSJ0ZXh0IiBuYW1lPSJuYXZiYXJfdGl0bGUiIHZhbHVlPSJ7eyBuYXZiYXJfdGl0bGUgfX0iIGNsYXNzPSJ3LWZ1bGwgcHgtNCBweS0zIGJvcmRlciByb3VuZGVkLWxnIGZvY3VzOnJpbmctMiBmb2N1czpyaW5nLWJsdWUtNTAwIGZvY3VzOmJvcmRlci1ibHVlLTUwMCI+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDxkaXY+CiAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGNsYXNzPSJibG9jayB0ZXh0LXNtIGZvbnQtbWVkaXVtIHRleHQtZ3JheS03MDAgbWItMiI+5Li76aKY6aKc6ImyPC9sYWJlbD4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmbGV4IGdhcC0zIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9ImNvbG9yIiBuYW1lPSJwb3J0YWxfY29sb3IiIHZhbHVlPSJ7eyBwb3J0YWxfY29sb3IgfX0iIGNsYXNzPSJ3LTEyIGgtMTIgcm91bmRlZCBib3JkZXIgY3Vyc29yLXBvaW50ZXIiPgogICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgbmFtZT0icG9ydGFsX2NvbG9yX3RleHQiIHZhbHVlPSJ7eyBwb3J0YWxfY29sb3IgfX0iIGNsYXNzPSJmbGV4LTEgcHgtNCBweS0zIGJvcmRlciByb3VuZGVkLWxnIiBvbmNoYW5nZT0iZG9jdW1lbnQucXVlcnlTZWxlY3RvcignaW5wdXRbdHlwZT1jb2xvcl0nKS52YWx1ZT10aGlzLnZhbHVlIj4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICAgICAgPGRpdj4KICAgICAgICAgICAgICAgICAgICA8bGFiZWwgY2xhc3M9ImJsb2NrIHRleHQtc20gZm9udC1tZWRpdW0gdGV4dC1ncmF5LTcwMCBtYi0yIj7mlrAgQWRtaW4g5a+G56CB77yI55WZ56m65YiZ5LiN5Y+Y77yJPC9sYWJlbD4KICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0icGFzc3dvcmQiIG5hbWU9ImFkbWluX3Bhc3N3b3JkIiBwbGFjZWhvbGRlcj0i6L6T5YWl5paw5a+G56CB5Lul5pu05pS5IiBjbGFzcz0idy1mdWxsIHB4LTQgcHktMyBib3JkZXIgcm91bmRlZC1sZyBmb2N1czpyaW5nLTIgZm9jdXM6cmluZy1ibHVlLTUwMCBmb2N1czpib3JkZXItYmx1ZS01MDAiPgogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJwdC00Ij4KICAgICAgICAgICAgICAgICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9InB4LTYgcHktMyBiZy1ibHVlLTUwMCB0ZXh0LXdoaXRlIHJvdW5kZWQtbGcgaG92ZXI6YmctYmx1ZS02MDAgdHJhbnNpdGlvbiBmb250LW1lZGl1bSI+5L+d5a2Y6K6+572uPC9idXR0b24+CiAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPC9mb3JtPgogICAgICAgIDwvZGl2PgoKICAgICAgICA8ZGl2IGNsYXNzPSJtdC04IHAtNiBiZy1ibHVlLTUwIHJvdW5kZWQteGwgYm9yZGVyIGJvcmRlci1ibHVlLTEwMCI+CiAgICAgICAgICAgIDxoMyBjbGFzcz0iZm9udC1zZW1pYm9sZCB0ZXh0LWdyYXktNzAwIG1iLTMiPvCfk4Eg5a655Zmo5YaF5bel5YW355uu5b2VPC9oMz4KICAgICAgICAgICAgPHAgY2xhc3M9InRleHQtc20gdGV4dC1ncmF5LTYwMCI+PGNvZGUgY2xhc3M9ImJnLXdoaXRlIHB4LTIgcHktMSByb3VuZGVkIj4vYXBwL3Rvb2xzPC9jb2RlPiDigJQg5LiK5Lyg55qE5paH5Lu25L+d5a2Y5Zyo6L+Z6YeM77yI6YeN5ZCv5ZCO5oyB5LmF5YyW77yJPC9wPgogICAgICAgIDwvZGl2PgogICAgPC9tYWluPgo8L2JvZHk+CjwvaHRtbD4nJycKCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6CiAgICBhcHAucnVuKGhvc3Q9JzAuMC4wLjAnLCBwb3J0PTUwMDAsIGRlYnVnPUZhbHNlKQo=
+import os, secrets
+from flask import Flask, send_from_directory, request, flash, render_template_string, redirect, url_for
+from flask_httpauth import HTTPBasicAuth
+from werkzeug.security import check_password_hash, generate_password_hash
+from werkzeug.utils import secure_filename
+
+app = Flask(__name__)
+app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max upload
+
+auth = HTTPBasicAuth()
+users = {"admin": generate_password_hash(os.environ.get('ADMIN_PASSWORD', 'admin123'))}
+
+@auth.verify_password
+def verify_password(username, password):
+    if username in users and check_password_hash(users[username], password):
+        return username
+
+TOOLS_DIR = os.environ.get('TOOLS_DIR', '/app/tools')
+NAVBAR_TITLE = os.environ.get('NAVBAR_TITLE', 'LDY Tools Portal')
+PORTAL_COLOR = os.environ.get('PORTAL_COLOR', '#3b82f6')
+
+os.makedirs(TOOLS_DIR, exist_ok=True)
+
+def get_tool_list():
+    tools = []
+    if os.path.isdir(TOOLS_DIR):
+        for f in sorted(os.listdir(TOOLS_DIR)):
+            if f.endswith('.html'):
+                tools.append({
+                    'name': f.replace('.html','').replace('-',' ').replace('_',' ').title(),
+                    'file': f,
+                    'path': f'/tools/{f}'
+                })
+    return tools
+
+def save_env(key, value):
+    env_path = '/app/.env'
+    lines = []
+    if os.path.exists(env_path):
+        with open(env_path) as f:
+            lines = [l for l in f if not l.startswith(key+'=')]
+    with open(env_path, 'w') as f:
+        f.write('\n'.join(lines) + ('\n' if lines else '') + f"{key}={value}\n")
+
+@app.route('/')
+@auth.login_required
+def index():
+    tools = get_tool_list()
+    return render_template_string(TEMPLATE_HOME, tools=tools, navbar_title=NAVBAR_TITLE,
+        portal_color=PORTAL_COLOR, username=auth.username())
+
+@app.route('/tools/<path:filename>')
+@auth.login_required
+def serve_tool(filename):
+    return send_from_directory(TOOLS_DIR, filename)
+
+@app.route('/admin')
+@auth.login_required
+def admin():
+    tools = get_tool_list()
+    return render_template_string(TEMPLATE_ADMIN, tools=tools,
+        navbar_title=NAVBAR_TITLE, portal_color=PORTAL_COLOR, username=auth.username())
+
+@app.route('/admin/update', methods=['POST'])
+@auth.login_required
+def admin_update():
+    global NAVBAR_TITLE, PORTAL_COLOR
+    NAVBAR_TITLE = request.form.get('navbar_title', NAVBAR_TITLE)
+    PORTAL_COLOR = request.form.get('portal_color', PORTAL_COLOR)
+    save_env('NAVBAR_TITLE', NAVBAR_TITLE)
+    save_env('PORTAL_COLOR', PORTAL_COLOR)
+    if request.form.get('admin_password'):
+        save_env('ADMIN_PASSWORD', request.form.get('admin_password'))
+        flash('设置已保存，密码已更新', 'success')
+    else:
+        flash('设置已保存', 'success')
+    return redirect(url_for('admin'))
+
+@app.route('/admin/upload', methods=['POST'])
+@auth.login_required
+def upload_tool():
+    file = request.files.get('tool_file')
+    if not file or not file.filename:
+        flash('请选择文件', 'error')
+        return redirect(url_for('admin'))
+    filename = secure_filename(file.filename)
+    if not filename.endswith('.html'):
+        flash('只允许上传 .html 文件', 'error')
+        return redirect(url_for('admin'))
+    path = os.path.join(TOOLS_DIR, filename)
+    file.save(path)
+    flash(f'{filename} 上传成功', 'success')
+    return redirect(url_for('admin'))
+
+@app.route('/admin/delete/<filename>', methods=['POST'])
+@auth.login_required
+def delete_tool(filename):
+    safe = secure_filename(filename)
+    path = os.path.join(TOOLS_DIR, safe)
+    if os.path.exists(path):
+        os.remove(path)
+        flash(f'{filename} 已删除', 'success')
+    return redirect(url_for('admin'))
+
+TEMPLATE_HOME = '''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ navbar_title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>body { font-family: 'Inter', system-ui, sans-serif; }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+        .portal-header { background: linear-gradient(135deg, {{ portal_color }}, #1e40af); }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="portal-header text-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+            <div><h1 class="text-2xl font-bold">{{ navbar_title }}</h1>
+                <p class="text-blue-200 text-sm mt-1">硬件工程师工具集</p></div>
+            <div class="flex items-center gap-4">
+                <span class="text-blue-200 text-sm">Welcome, {{ username }}</span>
+                <a href="{{ url_for('index') }}" class="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition text-sm">工具首页</a>
+                <a href="{{ url_for('admin') }}" class="px-4 py-2 bg-white/20 rounded-lg hover:bg-white/30 transition text-sm">⚙️ 设置</a>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <div class="mb-6 flex items-center justify-between">
+            <h2 class="text-xl font-semibold text-gray-700">可用工具 ({{ tools|length }})</h2>
+        </div>
+        {% if tools %}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for tool in tools %}
+            <a href="{{ tool.path }}" target="_blank" class="tool-card block bg-white rounded-2xl shadow-md p-6 border border-gray-100 transition-all duration-200 hover:border-blue-200">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg" style="background: {{ portal_color }}">🔧</div>
+                    <h3 class="font-semibold text-gray-800">{{ tool.name }}</h3>
+                </div>
+                <p class="text-sm text-gray-500">{{ tool.file }}</p>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center py-16 bg-white rounded-2xl shadow">
+            <div class="text-5xl mb-4">🛠️</div>
+            <h3 class="text-lg font-semibold text-gray-700 mb-2">暂无工具</h3>
+            <p class="text-gray-500">请在设置页面上传 HTML 文件</p>
+        </div>
+        {% endif %}
+    </main>
+</body>
+</html>'''
+
+TEMPLATE_ADMIN = '''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理后台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-800">⚙️ 管理后台</h1>
+            <div class="flex items-center gap-4">
+                <a href="{{ url_for('index') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">← 返回首页</a>
+                <span class="text-gray-500 text-sm">{{ username }}</span>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-6 py-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+          <div class="mb-4 p-4 rounded-lg {% if category == 'success' %}bg-green-100 text-green-800{% else %}bg-red-100 text-red-800{% endif %}">{{ message }}</div>
+          {% endfor %}
+        {% endwith %}
+
+        <!-- 上传工具 -->
+        <div class="bg-white rounded-2xl shadow p-8 mb-8">
+            <h2 class="text-lg font-semibold text-gray-700 mb-6">📤 上传工具</h2>
+            <form method="POST" action="{{ url_for('upload_tool') }}" enctype="multipart/form-data" class="space-y-4">
+                <div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-blue-400 transition">
+                    <input type="file" name="tool_file" accept=".html" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"/>
+                </div>
+                <button type="submit" class="px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition font-medium">上传并添加工具</button>
+            </form>
+        </div>
+
+        <!-- 已上传工具 -->
+        <div class="bg-white rounded-2xl shadow p-8 mb-8">
+            <h2 class="text-lg font-semibold text-gray-700 mb-4">已上传工具 ({{ tools|length }})</h2>
+            {% if tools %}
+            <div class="space-y-2">
+                {% for tool in tools %}
+                <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div class="flex items-center gap-3">
+                        <span class="text-xl">🔧</span>
+                        <div>
+                            <div class="font-medium text-gray-800">{{ tool.name }}</div>
+                            <div class="text-xs text-gray-500">{{ tool.file }}</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="{{ tool.path }}" target="_blank" class="px-3 py-1 bg-blue-100 text-blue-700 rounded text-xs hover:bg-blue-200">打开</a>
+                        <form method="POST" action="{{ url_for('delete_tool', filename=tool.file) }}" onsubmit="return confirm('确定删除 {{ tool.file }}？')">
+                            <button type="submit" class="px-3 py-1 bg-red-100 text-red-700 rounded text-xs hover:bg-red-200">删除</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <p class="text-center py-8 text-gray-500">暂无工具</p>
+            {% endif %}
+        </div>
+
+        <!-- 基本设置 -->
+        <div class="bg-white rounded-2xl shadow p-8">
+            <h2 class="text-lg font-semibold text-gray-700 mb-6">基本设置</h2>
+            <form method="POST" action="{{ url_for('admin_update') }}" class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">导航栏标题</label>
+                    <input type="text" name="navbar_title" value="{{ navbar_title }}" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">主题颜色</label>
+                    <div class="flex gap-3">
+                        <input type="color" name="portal_color" value="{{ portal_color }}" class="w-12 h-12 rounded border cursor-pointer">
+                        <input type="text" name="portal_color_text" value="{{ portal_color }}" class="flex-1 px-4 py-3 border rounded-lg" onchange="document.querySelector('input[type=color]').value=this.value">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">新 Admin 密码（留空则不变）</label>
+                    <input type="password" name="admin_password" placeholder="输入新密码以更改" class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                <div class="pt-4">
+                    <button type="submit" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition font-medium">保存设置</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
+            <h3 class="font-semibold text-gray-700 mb-3">📁 容器内工具目录</h3>
+            <p class="text-sm text-gray-600"><code class="bg-white px-2 py-1 rounded">/app/tools</code> — 上传的文件保存在这里（重启后持久化）</p>
+        </div>
+    </main>
+</body>
+</html>'''
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000, debug=False)
