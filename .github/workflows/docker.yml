@@ -7,6 +7,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,5 +27,8 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/html-tools:latest .
-          docker push ghcr.io/${{ github.repository }}/html-tools:latest
+          echo "Building image..."
+          docker build -t ghcr.io/primeldy88/html-tools:latest .
+          echo "Pushing image..."
+          docker push ghcr.io/primeldy88/html-tools:latest
+          echo "Done!"
