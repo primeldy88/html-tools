@@ -33,19 +33,23 @@ services:
     volumes:
       - ./data:/app/tools
     restart: unless-stopped
-
+```
 方式二：直接运行容器
+```bash
 docker run -d \
   --name html-tools \
   -p 5000:5000 \
   -e ADMIN_PASSWORD=admin123 \
   -v $(pwd)/data:/app/tools \
   ghcr.io/primeldy88/html-tools:latest
+```
 🔑 访问信息
 项目
 值
 访问地址
+```bash
 http://localhost:5000
+```
 工具首页
 无需登录，直接访问
 管理后台
