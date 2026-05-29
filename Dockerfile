@@ -1,1 +1,7 @@
-RlJPTSBweXRob246My4xMS1zbGltCldPUktESVIgL2FwcApSVU4gcGlwIGluc3RhbGwgLS1uby1jYWNoZS1kaXIgZmxhc2sgZmxhc2staHR0cGF1dGggd2Vya3pldWcKUlVOIG1rZGlyIC1wIC9hcHAvdG9vbHMKQ09QWSBhcHAucHkgLgpFWFBPU0UgNTAwMApDTUQgWyJweXRob24iLCAiYXBwLnB5Il0K
+FROM python:3.11-slim
+WORKDIR /app
+RUN pip install --no-cache-dir flask flask-httpauth werkzeug
+RUN mkdir -p /app/tools
+COPY app.py .
+EXPOSE 5000
+CMD ["python", "app.py"]
