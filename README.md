@@ -89,14 +89,14 @@ docker run -d \
 
 ## 📁 目录结构
 html-tools/
-├── app.py                 # Flask 主程序
-├── Dockerfile             # Docker 镜像构建
-├── docker-compose.yml     # Docker Compose 配置
-├── requirements.txt       # Python 依赖
-└── data/                  # 工具文件持久化目录（需手动创建）
-    ├── tool1.html
-    ├── tool2.html
-    └── .metadata.json     # 工具元数据（自动生成）
+├── app.py # Flask 主程序
+├── Dockerfile # Docker 镜像构建
+├── docker-compose.yml # Docker Compose 配置
+├── requirements.txt # Python 依赖
+└── data/ # 工具文件持久化目录（需手动创建）
+├── tool1.html
+├── tool2.html
+└── .metadata.json # 工具元数据（自动生成）
 🐳 本地开发
 git clone https://github.com/primeldy88/html-tools.git
 cd html-tools
