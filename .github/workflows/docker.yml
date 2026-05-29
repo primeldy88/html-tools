@@ -25,10 +25,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Debug - show files
+        run: |
+          echo "=== PWD ==="
+          pwd
+          echo "=== LS ==="
+          ls -la
+
       - name: Build and push
         run: |
-          echo "Building image..."
-          docker build -t ghcr.io/primeldy88/html-tools:latest .
-          echo "Pushing image..."
-          docker push ghcr.io/primeldy88/html-tools:latest
-          echo "Done!"
+          docker build -t ghcr.io/${{ github.repository }}/html-tools:latest .
+          docker push ghcr.io/${{ github.repository }}/html-tools:latest
