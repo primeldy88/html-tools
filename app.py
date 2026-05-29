@@ -1,6 +1,5 @@
 import os, secrets, json
-from flask import Flask, send_from_directory, request, flash, render_template_string, redirect, url_for
-from flask_httpauth import HTTPBasicAuth
+from flask import Flask, send_from_directory, request, flash, render_template_string, redirect, url_for, session, make_response
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 
@@ -8,13 +7,8 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-auth = HTTPBasicAuth()
-users = {"admin": generate_password_hash(os.environ.get('ADMIN_PASSWORD', 'admin123'))}
-
-@auth.verify_password
-def verify_password(username, password):
-    if username in users and check_password_hash(users[username], password):
-        return username
+ADMIN_USER = os.environ.get('ADMIN_USER', 'admin')
+ADMIN_PASSWORD_HASH = generate_password_hash(os.environ.get('ADMIN_PASSWORD', 'admin123'))
 
 TOOLS_DIR = os.environ.get('TOOLS_DIR', '/app/tools')
 NAVBAR_TITLE = os.environ.get('NAVBAR_TITLE', 'LDY Tools Portal')
@@ -47,9 +41,22 @@ def get_tool_list():
                     'name': info.get('name', f.replace('.html','').replace('-',' ').replace('_',' ').title()),
                     'file': f,
                     'path': f'/tools/{f}',
-                    'icon': info.get('icon', '')
+                    'icon': info.get('icon', ''),
+                    'description': info.get('description', '')
                 })
     return tools
+
+def is_logged_in():
+    return session.get('logged_in', False)
+
+def login_required(f):
+    from functools import wraps
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not is_logged_in():
+            return redirect(url_for('login_page'))
+        return f(*args, **kwargs)
+    return decorated
 
 def save_env(key, value):
     env_path = '/app/.env'
@@ -62,6 +69,8 @@ def save_env(key, value):
 
 def allowed_icon(filename):
     return '.' in filename and filename.rsplit('.',1)[1].lower() in {'png','jpg','jpeg','gif','svg','ico'}
+
+# ========== Routes ==========
 
 @app.route('/')
 def index():
@@ -76,22 +85,42 @@ def serve_tool(filename):
 def serve_icon(filename):
     return send_from_directory(TOOLS_DIR, filename)
 
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    if request.method == 'POST':
+        user = request.form.get('username', '')
+        pw = request.form.get('password', '')
+        if user == ADMIN_USER and check_password_hash(ADMIN_PASSWORD_HASH, pw):
+            session['logged_in'] = True
+            return redirect(url_for('admin'))
+        else:
+            flash('用户名或密码错误', 'error')
+    return render_template_string(TEMPLATE_LOGIN, navbar_title=NAVBAR_TITLE, portal_color=PORTAL_COLOR)
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
 @app.route('/admin')
-@auth.login_required
+@login_required
 def admin():
     tools = get_tool_list()
-    return render_template_string(TEMPLATE_ADMIN, tools=tools,
-        navbar_title=NAVBAR_TITLE, portal_color=PORTAL_COLOR, username=auth.username())
+    meta = load_meta()
+    return render_template_string(TEMPLATE_ADMIN, tools=tools, meta=meta,
+        navbar_title=NAVBAR_TITLE, portal_color=PORTAL_COLOR, username=ADMIN_USER)
 
 @app.route('/admin/update', methods=['POST'])
-@auth.login_required
+@login_required
 def admin_update():
-    global NAVBAR_TITLE, PORTAL_COLOR
+    global NAVBAR_TITLE, PORTAL_COLOR, ADMIN_USER, ADMIN_PASSWORD_HASH
     NAVBAR_TITLE = request.form.get('navbar_title', NAVBAR_TITLE)
     PORTAL_COLOR = request.form.get('portal_color', PORTAL_COLOR)
     save_env('NAVBAR_TITLE', NAVBAR_TITLE)
     save_env('PORTAL_COLOR', PORTAL_COLOR)
     if request.form.get('admin_password'):
+        new_hash = generate_password_hash(request.form.get('admin_password'))
+        ADMIN_PASSWORD_HASH = new_hash
         save_env('ADMIN_PASSWORD', request.form.get('admin_password'))
         flash('设置已保存，密码已更新', 'success')
     else:
@@ -99,10 +128,11 @@ def admin_update():
     return redirect(url_for('admin'))
 
 @app.route('/admin/upload', methods=['POST'])
-@auth.login_required
+@login_required
 def upload_tool():
     file = request.files.get('tool_file')
     tool_name = request.form.get('tool_name', '').strip()
+    tool_desc = request.form.get('tool_description', '').strip()
     icon_file = request.files.get('icon_file')
     
     if not file or not file.filename:
@@ -117,16 +147,17 @@ def upload_tool():
     path = os.path.join(TOOLS_DIR, filename)
     file.save(path)
     
-    # Save metadata
     meta = load_meta()
     icon_name = ''
     if icon_file and allowed_icon(icon_file.filename):
-        icon_name = f"icon_{filename.rsplit('.',1)[0]}.{icon_file.filename.rsplit('.',1)[1].lower()}"
-        icon_path = os.path.join(TOOLS_DIR, secure_filename(icon_name))
+        ext = icon_file.filename.rsplit('.',1)[1].lower()
+        icon_name = f"icon_{secure_filename(filename.rsplit('.',1)[0])}.{ext}"
+        icon_path = os.path.join(TOOLS_DIR, icon_name)
         icon_file.save(icon_path)
     
     meta[filename] = {
         'name': tool_name or filename.replace('.html','').replace('-',' ').replace('_',' ').title(),
+        'description': tool_desc,
         'icon': icon_name
     }
     save_meta(meta)
@@ -135,27 +166,29 @@ def upload_tool():
     return redirect(url_for('admin'))
 
 @app.route('/admin/edit/<filename>', methods=['POST'])
-@auth.login_required
+@login_required
 def edit_tool(filename):
     safe = secure_filename(filename)
     tool_name = request.form.get('tool_name', '').strip()
+    tool_desc = request.form.get('tool_description', '').strip()
     icon_file = request.files.get('icon_file')
     
     meta = load_meta()
-    info = meta.get(safe, {})
+    info = meta.get(safe, {'name': safe.replace('.html','').replace('-',' ').replace('_',' ').title(), 'icon': '', 'description': ''})
     
     if tool_name:
         info['name'] = tool_name
+    if tool_desc:
+        info['description'] = tool_desc
     
     if icon_file and allowed_icon(icon_file.filename):
         ext = icon_file.filename.rsplit('.',1)[1].lower()
         icon_name = f"icon_{safe.rsplit('.',1)[0]}.{ext}"
-        icon_path = os.path.join(TOOLS_DIR, secure_filename(icon_name))
-        # Remove old icon if exists
         if info.get('icon'):
             old = os.path.join(TOOLS_DIR, info['icon'])
             if os.path.exists(old):
                 os.remove(old)
+        icon_path = os.path.join(TOOLS_DIR, icon_name)
         icon_file.save(icon_path)
         info['icon'] = icon_name
     
@@ -166,14 +199,13 @@ def edit_tool(filename):
     return redirect(url_for('admin'))
 
 @app.route('/admin/delete/<filename>', methods=['POST'])
-@auth.login_required
+@login_required
 def delete_tool(filename):
     safe = secure_filename(filename)
     path = os.path.join(TOOLS_DIR, safe)
     if os.path.exists(path):
         os.remove(path)
     
-    # Clean up metadata
     meta = load_meta()
     if safe in meta:
         icon = meta[safe].get('icon')
@@ -186,6 +218,46 @@ def delete_tool(filename):
     
     flash(f'{filename} 已删除', 'success')
     return redirect(url_for('admin'))
+
+# ========== Templates ==========
+
+TEMPLATE_LOGIN = '''<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - {{ navbar_title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .login-bg { background: linear-gradient(135deg, {{ portal_color }}, #1e40af); }
+    </style>
+</head>
+<body class="login-bg min-h-screen flex items-center justify-center">
+    <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">{{ navbar_title }}</h1>
+            <p class="text-gray-500 text-sm mt-1">请登录管理后台</p>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+          <div class="mb-4 p-3 rounded-lg {% if category == 'error' %}bg-red-100 text-red-700{% endif %}">{{ message }}</div>
+          {% endfor %}
+        {% endwith %}
+        <form method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">用户名</label>
+                <input type="text" name="username" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">密码</label>
+                <input type="password" name="password" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <button type="submit" class="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition font-medium">登录</button>
+        </form>
+    </div>
+</body>
+</html>'''
 
 TEMPLATE_HOME = '''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -216,12 +288,17 @@ TEMPLATE_HOME = '''<!DOCTYPE html>
             <a href="{{ tool.path }}" target="_blank" class="tool-card block bg-white rounded-2xl shadow-md p-6 border border-gray-100 transition-all duration-200 hover:border-blue-200">
                 <div class="flex items-center gap-3 mb-3">
                     {% if tool.icon %}
-                    <img src="/icons/{{ tool.icon }}" class="w-10 h-10 rounded-xl object-cover" style="background: {{ portal_color }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg" style="background: {{ portal_color }}; display:none">🔧</div>
+                    <img src="/icons/{{ tool.icon }}" class="w-12 h-12 rounded-xl object-cover" style="background: {{ portal_color }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl" style="background: {{ portal_color }}; display:none">🔧</div>
                     {% else %}
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg" style="background: {{ portal_color }}">🔧</div>
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center text-white text-xl" style="background: {{ portal_color }}">🔧</div>
                     {% endif %}
-                    <h3 class="font-semibold text-gray-800">{{ tool.name }}</h3>
+                    <div>
+                        <h3 class="font-semibold text-gray-800">{{ tool.name }}</h3>
+                        {% if tool.description %}
+                        <p class="text-xs text-gray-500 mt-0.5">{{ tool.description }}</p>
+                        {% endif %}
+                    </div>
                 </div>
                 <p class="text-sm text-gray-500">{{ tool.file }}</p>
             </a>
@@ -252,11 +329,12 @@ TEMPLATE_ADMIN = '''<!DOCTYPE html>
             <h1 class="text-xl font-bold text-gray-800">⚙️ 管理后台</h1>
             <div class="flex items-center gap-4">
                 <a href="{{ url_for('index') }}" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">← 返回首页</a>
+                <a href="{{ url_for('logout') }}" class="px-4 py-2 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition text-sm">退出登录</a>
                 <span class="text-gray-500 text-sm">{{ username }}</span>
             </div>
         </div>
     </header>
-    <main class="max-w-4xl mx-auto px-6 py-8">
+    <main class="max-w-5xl mx-auto px-6 py-8">
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% for category, message in messages %}
           <div class="mb-4 p-4 rounded-lg {% if category == 'success' %}bg-green-100 text-green-800{% else %}bg-red-100 text-red-800{% endif %}">{{ message }}</div>
@@ -270,6 +348,10 @@ TEMPLATE_ADMIN = '''<!DOCTYPE html>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">工具名称</label>
                     <input type="text" name="tool_name" placeholder="输入工具名称（选填）" class="w-full px-4 py-3 border rounded-lg">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">工具描述</label>
+                    <input type="text" name="tool_description" placeholder="工具简短描述（选填）" class="w-full px-4 py-3 border rounded-lg">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">选择 HTML 文件</label>
@@ -287,17 +369,21 @@ TEMPLATE_ADMIN = '''<!DOCTYPE html>
         <div class="bg-white rounded-2xl shadow p-8 mb-8">
             <h2 class="text-lg font-semibold text-gray-700 mb-4">已上传工具 ({{ tools|length }})</h2>
             {% if tools %}
-            <div class="space-y-3">
+            <div class="space-y-4">
                 {% for tool in tools %}
-                <div class="p-4 bg-gray-50 rounded-lg">
+                {% set info = meta.get(tool.file, {}) %}
+                <div class="p-4 bg-gray-50 rounded-xl">
                     <div class="flex items-center justify-between mb-2">
                         <div class="flex items-center gap-3">
                             {% if tool.icon %}
-                            <img src="/icons/{{ tool.icon }}" class="w-8 h-8 rounded-lg object-cover" onerror="this.style.display='none'">
+                            <img src="/icons/{{ tool.icon }}" class="w-10 h-10 rounded-lg object-cover" onerror="this.style.display='none'">
                             {% endif %}
                             <div>
                                 <div class="font-medium text-gray-800">{{ tool.name }}</div>
                                 <div class="text-xs text-gray-500">{{ tool.file }}</div>
+                                {% if info.description %}
+                                <div class="text-xs text-gray-400 mt-0.5">{{ info.description }}</div>
+                                {% endif %}
                             </div>
                         </div>
                         <div class="flex gap-2">
@@ -305,11 +391,16 @@ TEMPLATE_ADMIN = '''<!DOCTYPE html>
                         </div>
                     </div>
                     <!-- Edit form -->
-                    <form method="POST" action="{{ url_for('edit_tool', filename=tool.file) }}" enctype="multipart/form-data" class="flex gap-2 mt-2">
-                        <input type="text" name="tool_name" value="{{ tool.name }}" placeholder="修改名称" class="flex-1 px-3 py-1 border rounded text-sm">
-                        <input type="file" name="icon_file" accept=".png,.jpg,.jpeg,.gif,.svg,.ico" class="text-xs border rounded px-2 py-1">
-                        <button type="submit" class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded text-xs hover:bg-yellow-200">更新</button>
-                        <button type="submit" formaction="{{ url_for('delete_tool', filename=tool.file) }}" formmethod="post" onclick="return confirm('确定删除 {{ tool.file }}？')" class="px-3 py-1 bg-red-100 text-red-700 rounded text-xs hover:bg-red-200">删除</button>
+                    <form method="POST" action="{{ url_for('edit_tool', filename=tool.file) }}" enctype="multipart/form-data" class="space-y-2">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            <input type="text" name="tool_name" value="{{ tool.name }}" placeholder="修改名称" class="px-3 py-2 border rounded text-sm">
+                            <input type="text" name="tool_description" value="{{ info.description or '' }}" placeholder="修改描述" class="px-3 py-2 border rounded text-sm">
+                        </div>
+                        <div class="flex gap-2 items-center">
+                            <input type="file" name="icon_file" accept=".png,.jpg,.jpeg,.gif,.svg,.ico" class="text-xs border rounded px-2 py-1 flex-1">
+                            <button type="submit" class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded text-xs hover:bg-yellow-200">更新</button>
+                            <button type="submit" formaction="{{ url_for('delete_tool', filename=tool.file) }}" formmethod="post" onclick="return confirm('确定删除 {{ tool.file }}？')" class="px-3 py-1 bg-red-100 text-red-700 rounded text-xs hover:bg-red-200">删除</button>
+                        </div>
                     </form>
                 </div>
                 {% endfor %}
