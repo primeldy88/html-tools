@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,13 +27,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Debug - show files
-        run: |
-          echo "=== PWD ==="
-          pwd
-          echo "=== LS ==="
-          ls -la
 
       - name: Build and push
         run: |
